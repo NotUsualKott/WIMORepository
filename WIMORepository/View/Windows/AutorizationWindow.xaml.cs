@@ -23,6 +23,9 @@ namespace WIMORepository
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new WIMORepository.ViewModel.AutorizationWindowViewModel.AutorizationWindowViewModelClass();
+
+            ViewModel.AutorizationWindowViewModel.AutorizationWindowViewModelClass.CloseAWindow = new Action(() => this.Close());
         }
     }
 }
