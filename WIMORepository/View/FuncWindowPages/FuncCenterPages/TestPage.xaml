@@ -9,6 +9,6 @@
       Style="{StaticResource StandartPageCenterSize}">
 
     <Grid Width="Auto" Height="Auto">
-    <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">TestPageContent</Label>
+        <Label Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30">Добро пожаловать в WIMO!</Label>
     </Grid>
 </Page>

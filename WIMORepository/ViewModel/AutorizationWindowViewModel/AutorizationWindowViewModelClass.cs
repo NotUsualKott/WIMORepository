@@ -44,7 +44,13 @@ namespace WIMORepository.ViewModel.AutorizationWindowViewModel
             }
         }
 
-
+        public void OpenPage(int ButtonNum)
+        {
+            ViewModel.FuncWindowViewModel.FuncWindowViewModelClass.buttonNum = ButtonNum;
+            View.Windows.FuncWindow funcWindow = new View.Windows.FuncWindow();
+            funcWindow.Show();
+            CloseAWindow();
+        }
 
         private void LoginCommandClick(object obj)
         {

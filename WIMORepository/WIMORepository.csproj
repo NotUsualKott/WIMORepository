@@ -56,16 +56,26 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\FuncWindowViewModel\FuncWindowViewModelClass.cs" />
+    <Compile Include="View\AutorizationWindowPages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FuncWindowPages\FuncButtonPages\AgentPage.xaml.cs">
       <DependentUpon>AgentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FuncWindowPages\FuncButtonPages\ManagerPage.xaml.cs">
       <DependentUpon>ManagerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\FuncWindowPages\FuncCenterPages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\FuncWindow.xaml.cs">
       <DependentUpon>FuncWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AutorizationWindowPages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AutorizationWindowPages\RegistrationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,6 +88,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FuncWindowPages\FuncButtonPages\ManagerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FuncWindowPages\FuncCenterPages\ProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

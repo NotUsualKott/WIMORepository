@@ -8,8 +8,8 @@
         WindowStartupLocation="CenterScreen" Style="{StaticResource WIMOStandardWindow}">
     <Grid Height="Auto" Width="Auto">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="17*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -24,18 +24,18 @@
 
         <Grid Grid.Row="0" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="863*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="6*"/>
             </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="1"  Style="{StaticResource StandardButton2}">Button</Button>
-            <Button Grid.Column="2"  Style="{StaticResource StandardButton2}">Button</Button>
-            <Button Grid.Column="3"  Style="{StaticResource StandardButton2}">Button</Button>
+            <Button Grid.Column="1"  Style="{StaticResource StandardButton2}" Command="{Binding Path=OpenProfileCommand}">Button</Button>
+            <Button Grid.Column="3"  Style="{StaticResource StandardButton2}" Command="{Binding Path=ExitCommand}">Button</Button>
         </Grid>
 
         <Frame Grid.Row="1" Grid.Column="0" Content="{Binding Path=CurrentSidePage, UpdateSourceTrigger=PropertyChanged}"/>
-        <Frame Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentCenterPage, UpdateSourceTrigger=PropertyChanged}" Background="#494646"/>
+        <Frame x:Name="CenterFrame" Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentCenterPage, UpdateSourceTrigger=PropertyChanged}" Background="#494646"/>
+
     </Grid>
 </Window>

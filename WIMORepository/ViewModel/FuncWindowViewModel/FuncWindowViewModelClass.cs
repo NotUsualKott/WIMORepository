@@ -5,18 +5,23 @@ using System;
 using System.Windows.Controls;
 using WIMORepository.View.FuncWindowPages.FuncButtonPages;
 
+
+
 namespace WIMORepository.ViewModel.FuncWindowViewModel
 {
     class FuncWindowViewModelClass : ViewModel.HelperViewModel.HelperViewModel
     {
-
         public static Action CloseWindowMain { get; set; }
 
         private Page currentCenterPage;
         private Page currentSidePage;
 
-        private static int pageCenterNum = 0;
-        private static int pageSideNum = 2;
+        public static int pageCenterNum  { get; set; }
+        public static int pageSideNum { get; set; }
+
+        public ICommand ExitCommand { get; set; }
+        public ICommand OpenProfileCommand { get; set; }
+
         public Page CurrentCenterPage
         {
             get => this.currentCenterPage;
@@ -31,15 +36,22 @@ namespace WIMORepository.ViewModel.FuncWindowViewModel
 
         public FuncWindowViewModelClass()
         {
+            
+
+            this.ExitCommand = new Command(FuncExitCommandClick);
+            this.OpenProfileCommand = new Command(FuncOpenProfileCommandClick);
+
+
             switch (pageCenterNum)
             {
-                case 0:
+                default:
                     CurrentCenterPage = new View.FuncWindowPages.TestPage();
                     break;
 
-                default:
-                    MessageBox.Show("Ошибка");
+                case 1:
+                    CurrentCenterPage = new View.FuncWindowPages.FuncCenterPages.ProfilePage();
                     break;
+                
             }
 
 
@@ -59,5 +71,19 @@ namespace WIMORepository.ViewModel.FuncWindowViewModel
                     break;
             }
         }
+
+        
+
+        private void FuncExitCommandClick(object obj)
+        {
+            Environment.Exit(0);
+        }
+
+        private void FuncOpenProfileCommandClick(object obj)
+        {
+            pageCenterNum = 1;
+        }
     }
+
+    
 }
