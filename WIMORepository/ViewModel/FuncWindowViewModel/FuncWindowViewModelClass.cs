@@ -46,10 +46,12 @@ namespace WIMORepository.ViewModel.FuncWindowViewModel
             {
                 default:
                     CurrentCenterPage = new View.FuncWindowPages.TestPage();
+                    OnPropertyChanged();
                     break;
 
                 case 1:
                     CurrentCenterPage = new View.FuncWindowPages.FuncCenterPages.ProfilePage();
+                    OnPropertyChanged();
                     break;
                 
             }

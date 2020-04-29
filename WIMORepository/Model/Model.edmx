@@ -1,0 +1,1844 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище WIMOModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="IDAgent" />
+          </Key>
+          <Property Name="IDAgent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDHuman" Type="int" Nullable="false" />
+          <Property Name="IDAgentSpecialization" Type="int" Nullable="false" />
+          <Property Name="IDMTF" Type="int" Nullable="false" />
+          <Property Name="IDAgentStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgentSpecialization">
+          <Key>
+            <PropertyRef Name="IDAgentSpecialization" />
+          </Key>
+          <Property Name="IDAgentSpecialization" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecName" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="SpecDesc" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgentStatus">
+          <Key>
+            <PropertyRef Name="IDAgentStatus" />
+          </Key>
+          <Property Name="IDAgentStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Caliber">
+          <Key>
+            <PropertyRef Name="IDCaliber" />
+          </Key>
+          <Property Name="IDCaliber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CaliberName" Type="nvarchar" MaxLength="16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IDClient" />
+          </Key>
+          <Property Name="IDClient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDHuman" Type="int" Nullable="false" />
+          <Property Name="IDClientType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ClientType">
+          <Key>
+            <PropertyRef Name="IDClientType" />
+          </Key>
+          <Property Name="IDClientType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientTypeName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="IDContract" />
+          </Key>
+          <Property Name="IDContract" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDAgent" Type="int" Nullable="false" />
+          <Property Name="StartContactDate" Type="date" />
+          <Property Name="EndContractDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Human">
+          <Key>
+            <PropertyRef Name="IDHuman" />
+          </Key>
+          <Property Name="IDHuman" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MTF">
+          <Key>
+            <PropertyRef Name="IDMTF" />
+          </Key>
+          <Property Name="IDMTF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MTFName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="IDMTFStatus" Type="int" />
+          <Property Name="MTFDescription" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="MTFStatus">
+          <Key>
+            <PropertyRef Name="IDMTFStatus" />
+          </Key>
+          <Property Name="IDMTFStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MTFStatusName" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Operation">
+          <Key>
+            <PropertyRef Name="IDOperation" />
+          </Key>
+          <Property Name="IDOperation" Type="int" Nullable="false" />
+          <Property Name="IDOrder" Type="int" Nullable="false" />
+          <Property Name="OperationName" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="IDOperationType" Type="int" Nullable="false" />
+          <Property Name="IDCommander" Type="int" Nullable="false" />
+          <Property Name="IDMTF" Type="int" Nullable="false" />
+          <Property Name="OperationStartDate" Type="date" />
+          <Property Name="OperationEndDate" Type="date" />
+          <Property Name="IDOperationStatus" Type="int" Nullable="false" />
+          <Property Name="Raport" Type="text" />
+        </EntityType>
+        <EntityType Name="OperationStatus">
+          <Key>
+            <PropertyRef Name="IDOperationStatus" />
+          </Key>
+          <Property Name="IDOperationStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationStatusName" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OperationType">
+          <Key>
+            <PropertyRef Name="IDOperationType" />
+          </Key>
+          <Property Name="IDOperationType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OperationTypeName" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDClient" Type="int" Nullable="false" />
+          <Property Name="IDOrderStatus" Type="int" Nullable="false" />
+          <Property Name="IDPriority" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="IDOrderStatus" />
+          </Key>
+          <Property Name="IDOrderStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderStatusName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="IDPriority" />
+          </Key>
+          <Property Name="IDPriority" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PriorityName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDHuman" Type="int" Nullable="false" />
+          <Property Name="IDRole" Type="int" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RegCode" Type="nchar" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Weapon">
+          <Key>
+            <PropertyRef Name="IDWeapon" />
+          </Key>
+          <Property Name="IDWeapon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeaponName" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="IDWeaponType" Type="int" Nullable="false" />
+          <Property Name="IDCaliber" Type="int" Nullable="false" />
+          <Property Name="Weight" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Image" Type="image" />
+        </EntityType>
+        <EntityType Name="WeaponForAgentSpec">
+          <Key>
+            <PropertyRef Name="IDWeaponForAgentSpec" />
+          </Key>
+          <Property Name="IDWeaponForAgentSpec" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDWeapon" Type="int" Nullable="false" />
+          <Property Name="IDAgentSpecialization" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeaponHistory">
+          <Key>
+            <PropertyRef Name="IDWeaponHistory" />
+          </Key>
+          <Property Name="IDWeaponHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDOperation" Type="int" Nullable="false" />
+          <Property Name="IDAgent" Type="int" Nullable="false" />
+          <Property Name="IDWeapon" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeaponProducer">
+          <Key>
+            <PropertyRef Name="IDWeaponProducer" />
+          </Key>
+          <Property Name="IDWeaponProducer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeaponProducerName" Type="nvarchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeaponStatus">
+          <Key>
+            <PropertyRef Name="IDWeaponStatus" />
+          </Key>
+          <Property Name="IDWeaponStatus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeaponStatusName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeaponStoreLog">
+          <Key>
+            <PropertyRef Name="IDStoreLog" />
+          </Key>
+          <Property Name="IDStoreLog" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDWeapon" Type="int" Nullable="false" />
+          <Property Name="IDWeaponProducer" Type="int" Nullable="false" />
+          <Property Name="SerialNum" Type="nchar" MaxLength="7" Nullable="false" />
+          <Property Name="IDWeaponStatus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="WeaponType">
+          <Key>
+            <PropertyRef Name="IDWeaponType" />
+          </Key>
+          <Property Name="IDWeaponType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WeaponTypeName" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Client_ClientType">
+          <End Role="ClientType" Type="Self.ClientType" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientType">
+              <PropertyRef Name="IDClientType" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IDClientType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Human">
+          <End Role="Human" Type="Self.Human" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="IDHuman" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IDHuman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="IDAgent" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="IDAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MTF_MTFStatus">
+          <End Role="MTFStatus" Type="Self.MTFStatus" Multiplicity="0..1" />
+          <End Role="MTF" Type="Self.MTF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTFStatus">
+              <PropertyRef Name="IDMTFStatus" />
+            </Principal>
+            <Dependent Role="MTF">
+              <PropertyRef Name="IDMTFStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="IDAgent" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDCommander" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_MTF">
+          <End Role="MTF" Type="Self.MTF" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTF">
+              <PropertyRef Name="IDMTF" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDMTF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_OperationStatus">
+          <End Role="OperationStatus" Type="Self.OperationStatus" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperationStatus">
+              <PropertyRef Name="IDOperationStatus" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDOperationStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_OperationType">
+          <End Role="OperationType" Type="Self.OperationType" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperationType">
+              <PropertyRef Name="IDOperationType" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDOperationType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="IDOrder" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_Human">
+          <End Role="Human" Type="Self.Human" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="IDHuman" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDHuman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_MTF">
+          <End Role="MTF" Type="Self.MTF" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTF">
+              <PropertyRef Name="IDMTF" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDMTF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_OperativeStatus">
+          <End Role="AgentStatus" Type="Self.AgentStatus" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentStatus">
+              <PropertyRef Name="IDAgentStatus" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDAgentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_OpSpecialization">
+          <End Role="AgentSpecialization" Type="Self.AgentSpecialization" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentSpecialization">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IDClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderStatus">
+          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="IDOrderStatus" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IDOrderStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Priority">
+          <End Role="Priority" Type="Self.Priority" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priority">
+              <PropertyRef Name="IDPriority" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IDPriority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Human">
+          <End Role="Human" Type="Self.Human" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="IDHuman" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IDHuman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Weapon_Caliber">
+          <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caliber">
+              <PropertyRef Name="IDCaliber" />
+            </Principal>
+            <Dependent Role="Weapon">
+              <PropertyRef Name="IDCaliber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Weapon_WeaponType">
+          <End Role="WeaponType" Type="Self.WeaponType" Multiplicity="1" />
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeaponType">
+              <PropertyRef Name="IDWeaponType" />
+            </Principal>
+            <Dependent Role="Weapon">
+              <PropertyRef Name="IDWeaponType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponForAgentSpec_AgentSpecialization">
+          <End Role="AgentSpecialization" Type="Self.AgentSpecialization" Multiplicity="1" />
+          <End Role="WeaponForAgentSpec" Type="Self.WeaponForAgentSpec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentSpecialization">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Principal>
+            <Dependent Role="WeaponForAgentSpec">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponForAgentSpec_Weapon">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1" />
+          <End Role="WeaponForAgentSpec" Type="Self.WeaponForAgentSpec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="IDWeapon" />
+            </Principal>
+            <Dependent Role="WeaponForAgentSpec">
+              <PropertyRef Name="IDWeapon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponHistory_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="WeaponHistory" Type="Self.WeaponHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="IDAgent" />
+            </Principal>
+            <Dependent Role="WeaponHistory">
+              <PropertyRef Name="IDAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponHistory_Operation">
+          <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+          <End Role="WeaponHistory" Type="Self.WeaponHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operation">
+              <PropertyRef Name="IDOperation" />
+            </Principal>
+            <Dependent Role="WeaponHistory">
+              <PropertyRef Name="IDOperation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponHistory_Weapon">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1" />
+          <End Role="WeaponHistory" Type="Self.WeaponHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="IDWeapon" />
+            </Principal>
+            <Dependent Role="WeaponHistory">
+              <PropertyRef Name="IDWeapon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponStore_Weapon">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1" />
+          <End Role="WeaponStoreLog" Type="Self.WeaponStoreLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="IDWeapon" />
+            </Principal>
+            <Dependent Role="WeaponStoreLog">
+              <PropertyRef Name="IDWeapon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponStore_WeaponProducer">
+          <End Role="WeaponProducer" Type="Self.WeaponProducer" Multiplicity="1" />
+          <End Role="WeaponStoreLog" Type="Self.WeaponStoreLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeaponProducer">
+              <PropertyRef Name="IDWeaponProducer" />
+            </Principal>
+            <Dependent Role="WeaponStoreLog">
+              <PropertyRef Name="IDWeaponProducer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponStore_WeaponStatus">
+          <End Role="WeaponStatus" Type="Self.WeaponStatus" Multiplicity="1" />
+          <End Role="WeaponStoreLog" Type="Self.WeaponStoreLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeaponStatus">
+              <PropertyRef Name="IDWeaponStatus" />
+            </Principal>
+            <Dependent Role="WeaponStoreLog">
+              <PropertyRef Name="IDWeaponStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище WIMOModelContainer">
+          <EntitySet Name="Agent" EntityType="Self.Agent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentSpecialization" EntityType="Self.AgentSpecialization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentStatus" EntityType="Self.AgentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caliber" EntityType="Self.Caliber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientType" EntityType="Self.ClientType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Human" EntityType="Self.Human" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MTF" EntityType="Self.MTF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MTFStatus" EntityType="Self.MTFStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Operation" EntityType="Self.Operation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperationStatus" EntityType="Self.OperationStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OperationType" EntityType="Self.OperationType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priority" EntityType="Self.Priority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weapon" EntityType="Self.Weapon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeaponForAgentSpec" EntityType="Self.WeaponForAgentSpec" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeaponHistory" EntityType="Self.WeaponHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeaponProducer" EntityType="Self.WeaponProducer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeaponStatus" EntityType="Self.WeaponStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeaponStoreLog" EntityType="Self.WeaponStoreLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WeaponType" EntityType="Self.WeaponType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Client_ClientType" Association="Self.FK_Client_ClientType">
+            <End Role="ClientType" EntitySet="ClientType" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Human" Association="Self.FK_Client_Human">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_Agent" Association="Self.FK_Contract_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MTF_MTFStatus" Association="Self.FK_MTF_MTFStatus">
+            <End Role="MTFStatus" EntitySet="MTFStatus" />
+            <End Role="MTF" EntitySet="MTF" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_Agent" Association="Self.FK_Operation_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_MTF" Association="Self.FK_Operation_MTF">
+            <End Role="MTF" EntitySet="MTF" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_OperationStatus" Association="Self.FK_Operation_OperationStatus">
+            <End Role="OperationStatus" EntitySet="OperationStatus" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_OperationType" Association="Self.FK_Operation_OperationType">
+            <End Role="OperationType" EntitySet="OperationType" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_Order" Association="Self.FK_Operation_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_Human" Association="Self.FK_Operative_Human">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_MTF" Association="Self.FK_Operative_MTF">
+            <End Role="MTF" EntitySet="MTF" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_OperativeStatus" Association="Self.FK_Operative_OperativeStatus">
+            <End Role="AgentStatus" EntitySet="AgentStatus" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_OpSpecialization" Association="Self.FK_Operative_OpSpecialization">
+            <End Role="AgentSpecialization" EntitySet="AgentSpecialization" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Priority" Association="Self.FK_Order_Priority">
+            <End Role="Priority" EntitySet="Priority" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Human" Association="Self.FK_User_Human">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Weapon_Caliber" Association="Self.FK_Weapon_Caliber">
+            <End Role="Caliber" EntitySet="Caliber" />
+            <End Role="Weapon" EntitySet="Weapon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Weapon_WeaponType" Association="Self.FK_Weapon_WeaponType">
+            <End Role="WeaponType" EntitySet="WeaponType" />
+            <End Role="Weapon" EntitySet="Weapon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponForAgentSpec_AgentSpecialization" Association="Self.FK_WeaponForAgentSpec_AgentSpecialization">
+            <End Role="AgentSpecialization" EntitySet="AgentSpecialization" />
+            <End Role="WeaponForAgentSpec" EntitySet="WeaponForAgentSpec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponForAgentSpec_Weapon" Association="Self.FK_WeaponForAgentSpec_Weapon">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="WeaponForAgentSpec" EntitySet="WeaponForAgentSpec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponHistory_Agent" Association="Self.FK_WeaponHistory_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="WeaponHistory" EntitySet="WeaponHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponHistory_Operation" Association="Self.FK_WeaponHistory_Operation">
+            <End Role="Operation" EntitySet="Operation" />
+            <End Role="WeaponHistory" EntitySet="WeaponHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponHistory_Weapon" Association="Self.FK_WeaponHistory_Weapon">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="WeaponHistory" EntitySet="WeaponHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponStore_Weapon" Association="Self.FK_WeaponStore_Weapon">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="WeaponStoreLog" EntitySet="WeaponStoreLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponStore_WeaponProducer" Association="Self.FK_WeaponStore_WeaponProducer">
+            <End Role="WeaponProducer" EntitySet="WeaponProducer" />
+            <End Role="WeaponStoreLog" EntitySet="WeaponStoreLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponStore_WeaponStatus" Association="Self.FK_WeaponStore_WeaponStatus">
+            <End Role="WeaponStatus" EntitySet="WeaponStatus" />
+            <End Role="WeaponStoreLog" EntitySet="WeaponStoreLog" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WIMOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Agent">
+          <Key>
+            <PropertyRef Name="IDAgent" />
+          </Key>
+          <Property Name="IDAgent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDHuman" Type="Int32" Nullable="false" />
+          <Property Name="IDAgentSpecialization" Type="Int32" Nullable="false" />
+          <Property Name="IDMTF" Type="Int32" Nullable="false" />
+          <Property Name="IDAgentStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Contract" Relationship="Self.FK_Contract_Agent" FromRole="Agent" ToRole="Contract" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_Operation_Agent" FromRole="Agent" ToRole="Operation" />
+          <NavigationProperty Name="Human" Relationship="Self.FK_Operative_Human" FromRole="Agent" ToRole="Human" />
+          <NavigationProperty Name="MTF" Relationship="Self.FK_Operative_MTF" FromRole="Agent" ToRole="MTF" />
+          <NavigationProperty Name="AgentStatus" Relationship="Self.FK_Operative_OperativeStatus" FromRole="Agent" ToRole="AgentStatus" />
+          <NavigationProperty Name="AgentSpecialization" Relationship="Self.FK_Operative_OpSpecialization" FromRole="Agent" ToRole="AgentSpecialization" />
+          <NavigationProperty Name="WeaponHistory" Relationship="Self.FK_WeaponHistory_Agent" FromRole="Agent" ToRole="WeaponHistory" />
+        </EntityType>
+        <EntityType Name="AgentSpecialization">
+          <Key>
+            <PropertyRef Name="IDAgentSpecialization" />
+          </Key>
+          <Property Name="IDAgentSpecialization" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecName" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SpecDesc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Operative_OpSpecialization" FromRole="AgentSpecialization" ToRole="Agent" />
+          <NavigationProperty Name="WeaponForAgentSpec" Relationship="Self.FK_WeaponForAgentSpec_AgentSpecialization" FromRole="AgentSpecialization" ToRole="WeaponForAgentSpec" />
+        </EntityType>
+        <EntityType Name="AgentStatus">
+          <Key>
+            <PropertyRef Name="IDAgentStatus" />
+          </Key>
+          <Property Name="IDAgentStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Operative_OperativeStatus" FromRole="AgentStatus" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="Caliber">
+          <Key>
+            <PropertyRef Name="IDCaliber" />
+          </Key>
+          <Property Name="IDCaliber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CaliberName" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Weapon" Relationship="Self.FK_Weapon_Caliber" FromRole="Caliber" ToRole="Weapon" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="IDClient" />
+          </Key>
+          <Property Name="IDClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDHuman" Type="Int32" Nullable="false" />
+          <Property Name="IDClientType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ClientType" Relationship="Self.FK_Client_ClientType" FromRole="Client" ToRole="ClientType" />
+          <NavigationProperty Name="Human" Relationship="Self.FK_Client_Human" FromRole="Client" ToRole="Human" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="ClientType">
+          <Key>
+            <PropertyRef Name="IDClientType" />
+          </Key>
+          <Property Name="IDClientType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientTypeName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_ClientType" FromRole="ClientType" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="IDContract" />
+          </Key>
+          <Property Name="IDContract" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDAgent" Type="Int32" Nullable="false" />
+          <Property Name="StartContactDate" Type="DateTime" Precision="0" />
+          <Property Name="EndContractDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Contract_Agent" FromRole="Contract" ToRole="Agent" />
+        </EntityType>
+        <EntityType Name="Human">
+          <Key>
+            <PropertyRef Name="IDHuman" />
+          </Key>
+          <Property Name="IDHuman" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Operative_Human" FromRole="Human" ToRole="Agent" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Client_Human" FromRole="Human" ToRole="Client" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Human" FromRole="Human" ToRole="User" />
+        </EntityType>
+        <EntityType Name="MTF">
+          <Key>
+            <PropertyRef Name="IDMTF" />
+          </Key>
+          <Property Name="IDMTF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MTFName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDMTFStatus" Type="Int32" />
+          <Property Name="MTFDescription" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Operative_MTF" FromRole="MTF" ToRole="Agent" />
+          <NavigationProperty Name="MTFStatus" Relationship="Self.FK_MTF_MTFStatus" FromRole="MTF" ToRole="MTFStatus" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_Operation_MTF" FromRole="MTF" ToRole="Operation" />
+        </EntityType>
+        <EntityType Name="MTFStatus">
+          <Key>
+            <PropertyRef Name="IDMTFStatus" />
+          </Key>
+          <Property Name="IDMTFStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MTFStatusName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MTF" Relationship="Self.FK_MTF_MTFStatus" FromRole="MTFStatus" ToRole="MTF" />
+        </EntityType>
+        <EntityType Name="Operation">
+          <Key>
+            <PropertyRef Name="IDOperation" />
+          </Key>
+          <Property Name="IDOperation" Type="Int32" Nullable="false" />
+          <Property Name="IDOrder" Type="Int32" Nullable="false" />
+          <Property Name="OperationName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDOperationType" Type="Int32" Nullable="false" />
+          <Property Name="IDCommander" Type="Int32" Nullable="false" />
+          <Property Name="IDMTF" Type="Int32" Nullable="false" />
+          <Property Name="OperationStartDate" Type="DateTime" Precision="0" />
+          <Property Name="OperationEndDate" Type="DateTime" Precision="0" />
+          <Property Name="IDOperationStatus" Type="Int32" Nullable="false" />
+          <Property Name="Raport" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_Operation_Agent" FromRole="Operation" ToRole="Agent" />
+          <NavigationProperty Name="MTF" Relationship="Self.FK_Operation_MTF" FromRole="Operation" ToRole="MTF" />
+          <NavigationProperty Name="OperationStatus" Relationship="Self.FK_Operation_OperationStatus" FromRole="Operation" ToRole="OperationStatus" />
+          <NavigationProperty Name="OperationType" Relationship="Self.FK_Operation_OperationType" FromRole="Operation" ToRole="OperationType" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Operation_Order" FromRole="Operation" ToRole="Order" />
+          <NavigationProperty Name="WeaponHistory" Relationship="Self.FK_WeaponHistory_Operation" FromRole="Operation" ToRole="WeaponHistory" />
+        </EntityType>
+        <EntityType Name="OperationStatus">
+          <Key>
+            <PropertyRef Name="IDOperationStatus" />
+          </Key>
+          <Property Name="IDOperationStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationStatusName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_Operation_OperationStatus" FromRole="OperationStatus" ToRole="Operation" />
+        </EntityType>
+        <EntityType Name="OperationType">
+          <Key>
+            <PropertyRef Name="IDOperationType" />
+          </Key>
+          <Property Name="IDOperationType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OperationTypeName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_Operation_OperationType" FromRole="OperationType" ToRole="Operation" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="IDOrder" />
+          </Key>
+          <Property Name="IDOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDClient" Type="Int32" Nullable="false" />
+          <Property Name="IDOrderStatus" Type="Int32" Nullable="false" />
+          <Property Name="IDPriority" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_Operation_Order" FromRole="Order" ToRole="Operation" />
+          <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
+          <NavigationProperty Name="Priority" Relationship="Self.FK_Order_Priority" FromRole="Order" ToRole="Priority" />
+        </EntityType>
+        <EntityType Name="OrderStatus">
+          <Key>
+            <PropertyRef Name="IDOrderStatus" />
+          </Key>
+          <Property Name="IDOrderStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderStatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="IDPriority" />
+          </Key>
+          <Property Name="IDPriority" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PriorityName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Priority" FromRole="Priority" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="IDRole" />
+          </Key>
+          <Property Name="IDRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDHuman" Type="Int32" Nullable="false" />
+          <Property Name="IDRole" Type="Int32" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegCode" Type="String" MaxLength="9" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Human" Relationship="Self.FK_User_Human" FromRole="User" ToRole="Human" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Weapon">
+          <Key>
+            <PropertyRef Name="IDWeapon" />
+          </Key>
+          <Property Name="IDWeapon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeaponName" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDWeaponType" Type="Int32" Nullable="false" />
+          <Property Name="IDCaliber" Type="Int32" Nullable="false" />
+          <Property Name="Weight" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Caliber" Relationship="Self.FK_Weapon_Caliber" FromRole="Weapon" ToRole="Caliber" />
+          <NavigationProperty Name="WeaponType" Relationship="Self.FK_Weapon_WeaponType" FromRole="Weapon" ToRole="WeaponType" />
+          <NavigationProperty Name="WeaponForAgentSpec" Relationship="Self.FK_WeaponForAgentSpec_Weapon" FromRole="Weapon" ToRole="WeaponForAgentSpec" />
+          <NavigationProperty Name="WeaponHistory" Relationship="Self.FK_WeaponHistory_Weapon" FromRole="Weapon" ToRole="WeaponHistory" />
+          <NavigationProperty Name="WeaponStoreLog" Relationship="Self.FK_WeaponStore_Weapon" FromRole="Weapon" ToRole="WeaponStoreLog" />
+        </EntityType>
+        <EntityType Name="WeaponForAgentSpec">
+          <Key>
+            <PropertyRef Name="IDWeaponForAgentSpec" />
+          </Key>
+          <Property Name="IDWeaponForAgentSpec" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDWeapon" Type="Int32" Nullable="false" />
+          <Property Name="IDAgentSpecialization" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AgentSpecialization" Relationship="Self.FK_WeaponForAgentSpec_AgentSpecialization" FromRole="WeaponForAgentSpec" ToRole="AgentSpecialization" />
+          <NavigationProperty Name="Weapon" Relationship="Self.FK_WeaponForAgentSpec_Weapon" FromRole="WeaponForAgentSpec" ToRole="Weapon" />
+        </EntityType>
+        <EntityType Name="WeaponHistory">
+          <Key>
+            <PropertyRef Name="IDWeaponHistory" />
+          </Key>
+          <Property Name="IDWeaponHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDOperation" Type="Int32" Nullable="false" />
+          <Property Name="IDAgent" Type="Int32" Nullable="false" />
+          <Property Name="IDWeapon" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Agent" Relationship="Self.FK_WeaponHistory_Agent" FromRole="WeaponHistory" ToRole="Agent" />
+          <NavigationProperty Name="Operation" Relationship="Self.FK_WeaponHistory_Operation" FromRole="WeaponHistory" ToRole="Operation" />
+          <NavigationProperty Name="Weapon" Relationship="Self.FK_WeaponHistory_Weapon" FromRole="WeaponHistory" ToRole="Weapon" />
+        </EntityType>
+        <EntityType Name="WeaponProducer">
+          <Key>
+            <PropertyRef Name="IDWeaponProducer" />
+          </Key>
+          <Property Name="IDWeaponProducer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeaponProducerName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WeaponStoreLog" Relationship="Self.FK_WeaponStore_WeaponProducer" FromRole="WeaponProducer" ToRole="WeaponStoreLog" />
+        </EntityType>
+        <EntityType Name="WeaponStatus">
+          <Key>
+            <PropertyRef Name="IDWeaponStatus" />
+          </Key>
+          <Property Name="IDWeaponStatus" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeaponStatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WeaponStoreLog" Relationship="Self.FK_WeaponStore_WeaponStatus" FromRole="WeaponStatus" ToRole="WeaponStoreLog" />
+        </EntityType>
+        <EntityType Name="WeaponStoreLog">
+          <Key>
+            <PropertyRef Name="IDStoreLog" />
+          </Key>
+          <Property Name="IDStoreLog" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDWeapon" Type="Int32" Nullable="false" />
+          <Property Name="IDWeaponProducer" Type="Int32" Nullable="false" />
+          <Property Name="SerialNum" Type="String" MaxLength="7" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDWeaponStatus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Weapon" Relationship="Self.FK_WeaponStore_Weapon" FromRole="WeaponStoreLog" ToRole="Weapon" />
+          <NavigationProperty Name="WeaponProducer" Relationship="Self.FK_WeaponStore_WeaponProducer" FromRole="WeaponStoreLog" ToRole="WeaponProducer" />
+          <NavigationProperty Name="WeaponStatus" Relationship="Self.FK_WeaponStore_WeaponStatus" FromRole="WeaponStoreLog" ToRole="WeaponStatus" />
+        </EntityType>
+        <EntityType Name="WeaponType">
+          <Key>
+            <PropertyRef Name="IDWeaponType" />
+          </Key>
+          <Property Name="IDWeaponType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeaponTypeName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Weapon" Relationship="Self.FK_Weapon_WeaponType" FromRole="WeaponType" ToRole="Weapon" />
+        </EntityType>
+        <Association Name="FK_Contract_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="IDAgent" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="IDAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="IDAgent" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDCommander" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_Human">
+          <End Role="Human" Type="Self.Human" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="IDHuman" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDHuman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_MTF">
+          <End Role="MTF" Type="Self.MTF" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTF">
+              <PropertyRef Name="IDMTF" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDMTF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_OperativeStatus">
+          <End Role="AgentStatus" Type="Self.AgentStatus" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentStatus">
+              <PropertyRef Name="IDAgentStatus" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDAgentStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operative_OpSpecialization">
+          <End Role="AgentSpecialization" Type="Self.AgentSpecialization" Multiplicity="1" />
+          <End Role="Agent" Type="Self.Agent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentSpecialization">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Principal>
+            <Dependent Role="Agent">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponHistory_Agent">
+          <End Role="Agent" Type="Self.Agent" Multiplicity="1" />
+          <End Role="WeaponHistory" Type="Self.WeaponHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Agent">
+              <PropertyRef Name="IDAgent" />
+            </Principal>
+            <Dependent Role="WeaponHistory">
+              <PropertyRef Name="IDAgent" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponForAgentSpec_AgentSpecialization">
+          <End Role="AgentSpecialization" Type="Self.AgentSpecialization" Multiplicity="1" />
+          <End Role="WeaponForAgentSpec" Type="Self.WeaponForAgentSpec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentSpecialization">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Principal>
+            <Dependent Role="WeaponForAgentSpec">
+              <PropertyRef Name="IDAgentSpecialization" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Weapon_Caliber">
+          <End Role="Caliber" Type="Self.Caliber" Multiplicity="1" />
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caliber">
+              <PropertyRef Name="IDCaliber" />
+            </Principal>
+            <Dependent Role="Weapon">
+              <PropertyRef Name="IDCaliber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_ClientType">
+          <End Role="ClientType" Type="Self.ClientType" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientType">
+              <PropertyRef Name="IDClientType" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IDClientType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Client_Human">
+          <End Role="Human" Type="Self.Human" Multiplicity="1" />
+          <End Role="Client" Type="Self.Client" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="IDHuman" />
+            </Principal>
+            <Dependent Role="Client">
+              <PropertyRef Name="IDHuman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="IDClient" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IDClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Human">
+          <End Role="Human" Type="Self.Human" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Human">
+              <PropertyRef Name="IDHuman" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IDHuman" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MTF_MTFStatus">
+          <End Role="MTFStatus" Type="Self.MTFStatus" Multiplicity="0..1" />
+          <End Role="MTF" Type="Self.MTF" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTFStatus">
+              <PropertyRef Name="IDMTFStatus" />
+            </Principal>
+            <Dependent Role="MTF">
+              <PropertyRef Name="IDMTFStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_MTF">
+          <End Role="MTF" Type="Self.MTF" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MTF">
+              <PropertyRef Name="IDMTF" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDMTF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_OperationStatus">
+          <End Role="OperationStatus" Type="Self.OperationStatus" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperationStatus">
+              <PropertyRef Name="IDOperationStatus" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDOperationStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_OperationType">
+          <End Role="OperationType" Type="Self.OperationType" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OperationType">
+              <PropertyRef Name="IDOperationType" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDOperationType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Operation_Order">
+          <End Role="Order" Type="Self.Order" Multiplicity="1" />
+          <End Role="Operation" Type="Self.Operation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="IDOrder" />
+            </Principal>
+            <Dependent Role="Operation">
+              <PropertyRef Name="IDOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponHistory_Operation">
+          <End Role="Operation" Type="Self.Operation" Multiplicity="1" />
+          <End Role="WeaponHistory" Type="Self.WeaponHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Operation">
+              <PropertyRef Name="IDOperation" />
+            </Principal>
+            <Dependent Role="WeaponHistory">
+              <PropertyRef Name="IDOperation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_OrderStatus">
+          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderStatus">
+              <PropertyRef Name="IDOrderStatus" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IDOrderStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Priority">
+          <End Role="Priority" Type="Self.Priority" Multiplicity="1" />
+          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priority">
+              <PropertyRef Name="IDPriority" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="IDPriority" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="IDRole" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="IDRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Weapon_WeaponType">
+          <End Role="WeaponType" Type="Self.WeaponType" Multiplicity="1" />
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeaponType">
+              <PropertyRef Name="IDWeaponType" />
+            </Principal>
+            <Dependent Role="Weapon">
+              <PropertyRef Name="IDWeaponType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponForAgentSpec_Weapon">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1" />
+          <End Role="WeaponForAgentSpec" Type="Self.WeaponForAgentSpec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="IDWeapon" />
+            </Principal>
+            <Dependent Role="WeaponForAgentSpec">
+              <PropertyRef Name="IDWeapon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponHistory_Weapon">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1" />
+          <End Role="WeaponHistory" Type="Self.WeaponHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="IDWeapon" />
+            </Principal>
+            <Dependent Role="WeaponHistory">
+              <PropertyRef Name="IDWeapon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponStore_Weapon">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1" />
+          <End Role="WeaponStoreLog" Type="Self.WeaponStoreLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="IDWeapon" />
+            </Principal>
+            <Dependent Role="WeaponStoreLog">
+              <PropertyRef Name="IDWeapon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponStore_WeaponProducer">
+          <End Role="WeaponProducer" Type="Self.WeaponProducer" Multiplicity="1" />
+          <End Role="WeaponStoreLog" Type="Self.WeaponStoreLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeaponProducer">
+              <PropertyRef Name="IDWeaponProducer" />
+            </Principal>
+            <Dependent Role="WeaponStoreLog">
+              <PropertyRef Name="IDWeaponProducer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WeaponStore_WeaponStatus">
+          <End Role="WeaponStatus" Type="Self.WeaponStatus" Multiplicity="1" />
+          <End Role="WeaponStoreLog" Type="Self.WeaponStoreLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WeaponStatus">
+              <PropertyRef Name="IDWeaponStatus" />
+            </Principal>
+            <Dependent Role="WeaponStoreLog">
+              <PropertyRef Name="IDWeaponStatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WIMOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Agent" EntityType="Self.Agent" />
+          <EntitySet Name="AgentSpecialization" EntityType="Self.AgentSpecialization" />
+          <EntitySet Name="AgentStatus" EntityType="Self.AgentStatus" />
+          <EntitySet Name="Caliber" EntityType="Self.Caliber" />
+          <EntitySet Name="Client" EntityType="Self.Client" />
+          <EntitySet Name="ClientType" EntityType="Self.ClientType" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" />
+          <EntitySet Name="Human" EntityType="Self.Human" />
+          <EntitySet Name="MTF" EntityType="Self.MTF" />
+          <EntitySet Name="MTFStatus" EntityType="Self.MTFStatus" />
+          <EntitySet Name="Operation" EntityType="Self.Operation" />
+          <EntitySet Name="OperationStatus" EntityType="Self.OperationStatus" />
+          <EntitySet Name="OperationType" EntityType="Self.OperationType" />
+          <EntitySet Name="Order" EntityType="Self.Order" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
+          <EntitySet Name="Priority" EntityType="Self.Priority" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="Weapon" EntityType="Self.Weapon" />
+          <EntitySet Name="WeaponForAgentSpec" EntityType="Self.WeaponForAgentSpec" />
+          <EntitySet Name="WeaponHistory" EntityType="Self.WeaponHistory" />
+          <EntitySet Name="WeaponProducer" EntityType="Self.WeaponProducer" />
+          <EntitySet Name="WeaponStatus" EntityType="Self.WeaponStatus" />
+          <EntitySet Name="WeaponStoreLog" EntityType="Self.WeaponStoreLog" />
+          <EntitySet Name="WeaponType" EntityType="Self.WeaponType" />
+          <AssociationSet Name="FK_Contract_Agent" Association="Self.FK_Contract_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_Agent" Association="Self.FK_Operation_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_Human" Association="Self.FK_Operative_Human">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_MTF" Association="Self.FK_Operative_MTF">
+            <End Role="MTF" EntitySet="MTF" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_OperativeStatus" Association="Self.FK_Operative_OperativeStatus">
+            <End Role="AgentStatus" EntitySet="AgentStatus" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operative_OpSpecialization" Association="Self.FK_Operative_OpSpecialization">
+            <End Role="AgentSpecialization" EntitySet="AgentSpecialization" />
+            <End Role="Agent" EntitySet="Agent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponHistory_Agent" Association="Self.FK_WeaponHistory_Agent">
+            <End Role="Agent" EntitySet="Agent" />
+            <End Role="WeaponHistory" EntitySet="WeaponHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponForAgentSpec_AgentSpecialization" Association="Self.FK_WeaponForAgentSpec_AgentSpecialization">
+            <End Role="AgentSpecialization" EntitySet="AgentSpecialization" />
+            <End Role="WeaponForAgentSpec" EntitySet="WeaponForAgentSpec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Weapon_Caliber" Association="Self.FK_Weapon_Caliber">
+            <End Role="Caliber" EntitySet="Caliber" />
+            <End Role="Weapon" EntitySet="Weapon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_ClientType" Association="Self.FK_Client_ClientType">
+            <End Role="ClientType" EntitySet="ClientType" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Client_Human" Association="Self.FK_Client_Human">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="Client" EntitySet="Client" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Human" Association="Self.FK_User_Human">
+            <End Role="Human" EntitySet="Human" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MTF_MTFStatus" Association="Self.FK_MTF_MTFStatus">
+            <End Role="MTFStatus" EntitySet="MTFStatus" />
+            <End Role="MTF" EntitySet="MTF" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_MTF" Association="Self.FK_Operation_MTF">
+            <End Role="MTF" EntitySet="MTF" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_OperationStatus" Association="Self.FK_Operation_OperationStatus">
+            <End Role="OperationStatus" EntitySet="OperationStatus" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_OperationType" Association="Self.FK_Operation_OperationType">
+            <End Role="OperationType" EntitySet="OperationType" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Operation_Order" Association="Self.FK_Operation_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="Operation" EntitySet="Operation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponHistory_Operation" Association="Self.FK_WeaponHistory_Operation">
+            <End Role="Operation" EntitySet="Operation" />
+            <End Role="WeaponHistory" EntitySet="WeaponHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Priority" Association="Self.FK_Order_Priority">
+            <End Role="Priority" EntitySet="Priority" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Weapon_WeaponType" Association="Self.FK_Weapon_WeaponType">
+            <End Role="WeaponType" EntitySet="WeaponType" />
+            <End Role="Weapon" EntitySet="Weapon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponForAgentSpec_Weapon" Association="Self.FK_WeaponForAgentSpec_Weapon">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="WeaponForAgentSpec" EntitySet="WeaponForAgentSpec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponHistory_Weapon" Association="Self.FK_WeaponHistory_Weapon">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="WeaponHistory" EntitySet="WeaponHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponStore_Weapon" Association="Self.FK_WeaponStore_Weapon">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="WeaponStoreLog" EntitySet="WeaponStoreLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponStore_WeaponProducer" Association="Self.FK_WeaponStore_WeaponProducer">
+            <End Role="WeaponProducer" EntitySet="WeaponProducer" />
+            <End Role="WeaponStoreLog" EntitySet="WeaponStoreLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WeaponStore_WeaponStatus" Association="Self.FK_WeaponStore_WeaponStatus">
+            <End Role="WeaponStatus" EntitySet="WeaponStatus" />
+            <End Role="WeaponStoreLog" EntitySet="WeaponStoreLog" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(WIMOModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(WIMOModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище WIMOModelContainer" CdmEntityContainer="WIMOEntities">
+          <EntitySetMapping Name="Agent">
+            <EntityTypeMapping TypeName="WIMOModel.Agent">
+              <MappingFragment StoreEntitySet="Agent">
+                <ScalarProperty Name="IDAgent" ColumnName="IDAgent" />
+                <ScalarProperty Name="IDHuman" ColumnName="IDHuman" />
+                <ScalarProperty Name="IDAgentSpecialization" ColumnName="IDAgentSpecialization" />
+                <ScalarProperty Name="IDMTF" ColumnName="IDMTF" />
+                <ScalarProperty Name="IDAgentStatus" ColumnName="IDAgentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentSpecialization">
+            <EntityTypeMapping TypeName="WIMOModel.AgentSpecialization">
+              <MappingFragment StoreEntitySet="AgentSpecialization">
+                <ScalarProperty Name="IDAgentSpecialization" ColumnName="IDAgentSpecialization" />
+                <ScalarProperty Name="SpecName" ColumnName="SpecName" />
+                <ScalarProperty Name="SpecDesc" ColumnName="SpecDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentStatus">
+            <EntityTypeMapping TypeName="WIMOModel.AgentStatus">
+              <MappingFragment StoreEntitySet="AgentStatus">
+                <ScalarProperty Name="IDAgentStatus" ColumnName="IDAgentStatus" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caliber">
+            <EntityTypeMapping TypeName="WIMOModel.Caliber">
+              <MappingFragment StoreEntitySet="Caliber">
+                <ScalarProperty Name="IDCaliber" ColumnName="IDCaliber" />
+                <ScalarProperty Name="CaliberName" ColumnName="CaliberName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Client">
+            <EntityTypeMapping TypeName="WIMOModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="IDHuman" ColumnName="IDHuman" />
+                <ScalarProperty Name="IDClientType" ColumnName="IDClientType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientType">
+            <EntityTypeMapping TypeName="WIMOModel.ClientType">
+              <MappingFragment StoreEntitySet="ClientType">
+                <ScalarProperty Name="IDClientType" ColumnName="IDClientType" />
+                <ScalarProperty Name="ClientTypeName" ColumnName="ClientTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contract">
+            <EntityTypeMapping TypeName="WIMOModel.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="IDContract" ColumnName="IDContract" />
+                <ScalarProperty Name="IDAgent" ColumnName="IDAgent" />
+                <ScalarProperty Name="StartContactDate" ColumnName="StartContactDate" />
+                <ScalarProperty Name="EndContractDate" ColumnName="EndContractDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Human">
+            <EntityTypeMapping TypeName="WIMOModel.Human">
+              <MappingFragment StoreEntitySet="Human">
+                <ScalarProperty Name="IDHuman" ColumnName="IDHuman" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTF">
+            <EntityTypeMapping TypeName="WIMOModel.MTF">
+              <MappingFragment StoreEntitySet="MTF">
+                <ScalarProperty Name="IDMTF" ColumnName="IDMTF" />
+                <ScalarProperty Name="MTFName" ColumnName="MTFName" />
+                <ScalarProperty Name="IDMTFStatus" ColumnName="IDMTFStatus" />
+                <ScalarProperty Name="MTFDescription" ColumnName="MTFDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTFStatus">
+            <EntityTypeMapping TypeName="WIMOModel.MTFStatus">
+              <MappingFragment StoreEntitySet="MTFStatus">
+                <ScalarProperty Name="IDMTFStatus" ColumnName="IDMTFStatus" />
+                <ScalarProperty Name="MTFStatusName" ColumnName="MTFStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Operation">
+            <EntityTypeMapping TypeName="WIMOModel.Operation">
+              <MappingFragment StoreEntitySet="Operation">
+                <ScalarProperty Name="IDOperation" ColumnName="IDOperation" />
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+                <ScalarProperty Name="IDOperationType" ColumnName="IDOperationType" />
+                <ScalarProperty Name="IDCommander" ColumnName="IDCommander" />
+                <ScalarProperty Name="IDMTF" ColumnName="IDMTF" />
+                <ScalarProperty Name="OperationStartDate" ColumnName="OperationStartDate" />
+                <ScalarProperty Name="OperationEndDate" ColumnName="OperationEndDate" />
+                <ScalarProperty Name="IDOperationStatus" ColumnName="IDOperationStatus" />
+                <ScalarProperty Name="Raport" ColumnName="Raport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperationStatus">
+            <EntityTypeMapping TypeName="WIMOModel.OperationStatus">
+              <MappingFragment StoreEntitySet="OperationStatus">
+                <ScalarProperty Name="IDOperationStatus" ColumnName="IDOperationStatus" />
+                <ScalarProperty Name="OperationStatusName" ColumnName="OperationStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OperationType">
+            <EntityTypeMapping TypeName="WIMOModel.OperationType">
+              <MappingFragment StoreEntitySet="OperationType">
+                <ScalarProperty Name="IDOperationType" ColumnName="IDOperationType" />
+                <ScalarProperty Name="OperationTypeName" ColumnName="OperationTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order">
+            <EntityTypeMapping TypeName="WIMOModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="IDOrder" ColumnName="IDOrder" />
+                <ScalarProperty Name="IDClient" ColumnName="IDClient" />
+                <ScalarProperty Name="IDOrderStatus" ColumnName="IDOrderStatus" />
+                <ScalarProperty Name="IDPriority" ColumnName="IDPriority" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderStatus">
+            <EntityTypeMapping TypeName="WIMOModel.OrderStatus">
+              <MappingFragment StoreEntitySet="OrderStatus">
+                <ScalarProperty Name="IDOrderStatus" ColumnName="IDOrderStatus" />
+                <ScalarProperty Name="OrderStatusName" ColumnName="OrderStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priority">
+            <EntityTypeMapping TypeName="WIMOModel.Priority">
+              <MappingFragment StoreEntitySet="Priority">
+                <ScalarProperty Name="IDPriority" ColumnName="IDPriority" />
+                <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="WIMOModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="WIMOModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="WIMOModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="IDHuman" ColumnName="IDHuman" />
+                <ScalarProperty Name="IDRole" ColumnName="IDRole" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RegCode" ColumnName="RegCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weapon">
+            <EntityTypeMapping TypeName="WIMOModel.Weapon">
+              <MappingFragment StoreEntitySet="Weapon">
+                <ScalarProperty Name="IDWeapon" ColumnName="IDWeapon" />
+                <ScalarProperty Name="WeaponName" ColumnName="WeaponName" />
+                <ScalarProperty Name="IDWeaponType" ColumnName="IDWeaponType" />
+                <ScalarProperty Name="IDCaliber" ColumnName="IDCaliber" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeaponForAgentSpec">
+            <EntityTypeMapping TypeName="WIMOModel.WeaponForAgentSpec">
+              <MappingFragment StoreEntitySet="WeaponForAgentSpec">
+                <ScalarProperty Name="IDWeaponForAgentSpec" ColumnName="IDWeaponForAgentSpec" />
+                <ScalarProperty Name="IDWeapon" ColumnName="IDWeapon" />
+                <ScalarProperty Name="IDAgentSpecialization" ColumnName="IDAgentSpecialization" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeaponHistory">
+            <EntityTypeMapping TypeName="WIMOModel.WeaponHistory">
+              <MappingFragment StoreEntitySet="WeaponHistory">
+                <ScalarProperty Name="IDWeaponHistory" ColumnName="IDWeaponHistory" />
+                <ScalarProperty Name="IDOperation" ColumnName="IDOperation" />
+                <ScalarProperty Name="IDAgent" ColumnName="IDAgent" />
+                <ScalarProperty Name="IDWeapon" ColumnName="IDWeapon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeaponProducer">
+            <EntityTypeMapping TypeName="WIMOModel.WeaponProducer">
+              <MappingFragment StoreEntitySet="WeaponProducer">
+                <ScalarProperty Name="IDWeaponProducer" ColumnName="IDWeaponProducer" />
+                <ScalarProperty Name="WeaponProducerName" ColumnName="WeaponProducerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeaponStatus">
+            <EntityTypeMapping TypeName="WIMOModel.WeaponStatus">
+              <MappingFragment StoreEntitySet="WeaponStatus">
+                <ScalarProperty Name="IDWeaponStatus" ColumnName="IDWeaponStatus" />
+                <ScalarProperty Name="WeaponStatusName" ColumnName="WeaponStatusName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeaponStoreLog">
+            <EntityTypeMapping TypeName="WIMOModel.WeaponStoreLog">
+              <MappingFragment StoreEntitySet="WeaponStoreLog">
+                <ScalarProperty Name="IDStoreLog" ColumnName="IDStoreLog" />
+                <ScalarProperty Name="IDWeapon" ColumnName="IDWeapon" />
+                <ScalarProperty Name="IDWeaponProducer" ColumnName="IDWeaponProducer" />
+                <ScalarProperty Name="SerialNum" ColumnName="SerialNum" />
+                <ScalarProperty Name="IDWeaponStatus" ColumnName="IDWeaponStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WeaponType">
+            <EntityTypeMapping TypeName="WIMOModel.WeaponType">
+              <MappingFragment StoreEntitySet="WeaponType">
+                <ScalarProperty Name="IDWeaponType" ColumnName="IDWeaponType" />
+                <ScalarProperty Name="WeaponTypeName" ColumnName="WeaponTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище WIMOModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище WIMOModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище WIMOModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище WIMOModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WIMOModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище WIMOModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="WIMOModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище WIMOModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище WIMOModel.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

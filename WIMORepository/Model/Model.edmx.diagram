@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="476e325439984624bc15b42312b5e74c" Name="Diagram1">
+        <EntityTypeShape EntityType="WIMOModel.Agent" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.AgentSpecialization" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.AgentStatus" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Caliber" Width="1.5" PointX="9" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Client" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.ClientType" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Contract" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Human" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.MTF" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.MTFStatus" Width="1.5" PointX="1.5" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Operation" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.OperationStatus" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.OperationType" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Order" Width="1.5" PointX="11.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.OrderStatus" Width="1.5" PointX="9" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Priority" Width="1.5" PointX="9" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Role" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.User" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Weapon" Width="1.5" PointX="11.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponForAgentSpec" Width="1.5" PointX="13.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponHistory" Width="1.5" PointX="13.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponProducer" Width="1.5" PointX="11.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponStatus" Width="1.5" PointX="11.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponStoreLog" Width="1.5" PointX="13.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponType" Width="1.5" PointX="9" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="WIMOModel.FK_Contract_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operation_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operative_Human" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operative_MTF" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operative_OperativeStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operative_OpSpecialization" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponHistory_Agent" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponForAgentSpec_AgentSpecialization" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Weapon_Caliber" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Client_ClientType" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Client_Human" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_User_Human" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_MTF_MTFStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operation_MTF" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operation_OperationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operation_OperationType" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Operation_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponHistory_Operation" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Order_Priority" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_Weapon_WeaponType" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponForAgentSpec_Weapon" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponHistory_Weapon" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponStore_Weapon" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponStore_WeaponProducer" ManuallyRouted="false" />
+        <AssociationConnector Association="WIMOModel.FK_WeaponStore_WeaponStatus" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
