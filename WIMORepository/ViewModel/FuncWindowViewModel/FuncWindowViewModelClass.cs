@@ -68,6 +68,9 @@ namespace WIMORepository.ViewModel.FuncWindowViewModel
                 case 2:
                     CurrentSidePage = new View.FuncWindowPages.FuncButtonPages.ManagerPage();
                     break;
+                case 3:
+                    CurrentSidePage = new View.FuncWindowPages.FuncButtonPages.ClientPage();
+                    break;
                 default:
                     MessageBox.Show("Ошибка");
                     break;

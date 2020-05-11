@@ -44,15 +44,15 @@
             </Grid.ColumnDefinitions>
             <Label Content="Добро пожаловать!" Grid.Row="1" Style="{StaticResource LabelWindowName}" Grid.ColumnSpan="3" Grid.Column="1"/>
             <Label Content="Пожалуйста, введите ваши данные для входа" Style="{StaticResource LabelHelpText}"  Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="1"/>
-            <TextBox Grid.Row="4"  Style="{StaticResource InputTextBox}" Grid.Column="1" Grid.ColumnSpan="3"/>
-            <TextBox Grid.Row="6"  Style="{StaticResource InputTextBox}" Grid.Column="1" Grid.ColumnSpan="3"/>
+            <TextBox Grid.Row="4"  Style="{StaticResource InputTextBox}" Text="{Binding Path = Username}" Grid.Column="1" Grid.ColumnSpan="3"/>
+            <TextBox Grid.Row="6"  Style="{StaticResource InputTextBox}" Text="{Binding Path = Password}" Grid.Column="1" Grid.ColumnSpan="3"/>
             <Label Content="Username" Style="{StaticResource LabelHelpText2}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"/>
             <Label Content="Пароль" Style="{StaticResource LabelHelpText2}" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3"/>
-            <Button Template="{StaticResource ButtonTemplate}"  Grid.Column="1" Grid.Row="8"  Grid.ColumnSpan="3">
+            <Button Template="{StaticResource ButtonTemplate}" Command="{Binding Path=LoginCommand}" Grid.Column="1" Grid.Row="8"  Grid.ColumnSpan="3">
                 <Label Content="Войти" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="White" TextBlock.FontSize="14" TextBlock.FontWeight="Light"/>
             </Button>
             <Button Content="Забыли пароль?" Style="{StaticResource StandardButton2}" Grid.Column="1" Grid.Row="10"/>
-            <Button Content="Регистрация" Style="{StaticResource StandardButton2}" Grid.Column="3" Grid.Row="10"/>
+            <Button Content="Регистрация" Style="{StaticResource StandardButton2}" Command="{Binding Path=RegistrationCommand}"  Grid.Column="3" Grid.Row="10"/>
         </Grid>
 
     </Grid>
