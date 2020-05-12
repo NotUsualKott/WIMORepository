@@ -13,7 +13,7 @@ namespace WIMORepository.ViewModel.AutorizationWindowViewModel
 
         private Page currentPage;
 
-        public static int pageNum = 0;
+        public static int pageNum = 1;
 
         public Page CurrentPage
         {
@@ -21,16 +21,11 @@ namespace WIMORepository.ViewModel.AutorizationWindowViewModel
             set => this.Set<Page>(ref currentPage, value);
         }
 
-
-        public ICommand LoginCommand { get; set; } // Команда для входа 
-        public ICommand RegCommand { get; set; } // Команда для регистрации
         public ICommand ExitCommand { get; set; } //Команда для выхода
 
 
         public AutorizationWindowViewModelClass()
         {
-            this.LoginCommand = new Command(LoginCommandClick);
-            this.RegCommand = new Command(RegCommandClick);
             this.ExitCommand = new Command(ExitCommandClick);
 
             switch (pageNum)
@@ -38,26 +33,27 @@ namespace WIMORepository.ViewModel.AutorizationWindowViewModel
                 case 0:
                     CurrentPage = new View.AutorizationWindowPages.RegistrationPage();
                     break;
+
+                case 1:
+                    CurrentPage = new View.AutorizationWindowPages.LoginPage();
+                    break;
+
                 default:
                     MessageBox.Show("Ошибка");
                     break;
             }
         }
 
-        private void LoginCommandClick(object obj)
-        {
-            MessageBox.Show("Логин");
-
-        }
-
-        private void RegCommandClick(object obj)
-        {
-            MessageBox.Show("Регистрация");
-        }
-
         private void ExitCommandClick(object obj)
         {
             Environment.Exit(0);
+        }
+
+        public static void OpenFuncWindow()
+        {
+            View.Windows.FuncWindow wind = new View.Windows.FuncWindow();
+            wind.Show();
+            CloseAWindow();
         }
     }
 }

@@ -29,8 +29,5 @@ namespace WIMORepository.ViewModel.PagesViewModels
             MessageBox.Show("Логин");
 
         }
-
-
-
     }
 }

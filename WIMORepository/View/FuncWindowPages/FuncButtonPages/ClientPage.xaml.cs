@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WIMORepository.View.AutorizationWindowPages
+namespace WIMORepository.View.FuncWindowPages.FuncButtonPages
 {
     /// <summary>
-    /// Логика взаимодействия для LoginPage.xaml
+    /// Interaction logic for ClientPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class ClientPage : Page
     {
-        public LoginPage()
+        public ClientPage()
         {
             InitializeComponent();
-            DataContext = new WIMORepository.ViewModel.PagesViewModels.LoginPageViewModel();
         }
     }
 }
