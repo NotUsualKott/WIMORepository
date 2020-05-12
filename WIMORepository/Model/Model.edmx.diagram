@@ -22,7 +22,7 @@
         <EntityTypeShape EntityType="WIMOModel.OrderStatus" Width="1.5" PointX="9" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.Priority" Width="1.5" PointX="17.625" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.Role" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.sysdiagram" Width="1.5" PointX="13.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.User" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.Weapon" Width="1.5" PointX="11.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.WeaponForAgentSpec" Width="1.5" PointX="13.5" PointY="4.375" IsExpanded="true" />

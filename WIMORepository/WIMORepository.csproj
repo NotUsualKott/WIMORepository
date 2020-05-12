@@ -70,7 +70,7 @@
     <Compile Include="Model\AgentSpecialization.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\AgentStatus.cs">
+    <Compile Include="Model\AgentStatu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Caliber.cs">
@@ -106,13 +106,13 @@
     <Compile Include="Model\MTF.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\MTFStatus.cs">
+    <Compile Include="Model\MTFStatu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Operation.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\OperationStatus.cs">
+    <Compile Include="Model\OperationStatu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\OperationType.cs">
@@ -121,7 +121,7 @@
     <Compile Include="Model\Order.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\OrderStatus.cs">
+    <Compile Include="Model\OrderStatu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Priority.cs">
@@ -136,7 +136,7 @@
     <Compile Include="Model\sp_helpdiagrams_Result.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\sysdiagrams.cs">
+    <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
@@ -154,7 +154,7 @@
     <Compile Include="Model\WeaponProducer.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\WeaponStatus.cs">
+    <Compile Include="Model\WeaponStatu.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\WeaponStoreLog.cs">
@@ -164,12 +164,16 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\FuncWindowViewModel\FuncWindowViewModelClass.cs" />
+    <Compile Include="ViewModel\PagesViewModels\LoginPageViewModel.cs" />
     <Compile Include="ViewModel\PagesViewModels\RegistrationPageViewModel.cs" />
     <Compile Include="View\AutorizationWindowPages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FuncWindowPages\FuncButtonPages\AgentPage.xaml.cs">
       <DependentUpon>AgentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FuncWindowPages\FuncButtonPages\ClientPage.xaml.cs">
+      <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\FuncWindowPages\FuncButtonPages\ManagerPage.xaml.cs">
       <DependentUpon>ManagerPage.xaml</DependentUpon>
@@ -193,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\FuncWindowPages\FuncButtonPages\AgentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FuncWindowPages\FuncButtonPages\ClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,6 +287,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model.Context.cs</LastGenOutput>
@@ -289,9 +300,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

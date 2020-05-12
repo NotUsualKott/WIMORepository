@@ -1,0 +1,22 @@
+﻿<Page x:Class="WIMORepository.View.FuncWindowPages.FuncButtonPages.ClientPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WIMORepository.View.FuncWindowPages.FuncButtonPages"
+      mc:Ignorable="d"
+      Title="ClientPage"      Style="{StaticResource StandartPageSideSize}">
+
+    <Grid Background="#74548E">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="213*"/>
+        </Grid.RowDefinitions>
+
+
+        <Button Grid.Row="0" Style="{StaticResource StandardButton}">Button</Button>
+        <Button Grid.Row="1" Style="{StaticResource StandardButton}">Button</Button>
+    </Grid>
+
+</Page>
