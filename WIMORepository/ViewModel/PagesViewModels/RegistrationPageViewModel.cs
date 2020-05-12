@@ -8,6 +8,8 @@ namespace WIMORepository.ViewModel.PagesViewModels
 {
     class RegistrationPageViewModel : WIMORepository.ViewModel.HelperViewModel.HelperViewModel
     {
+        
+
         public ICommand PersDataCommand { get; set; }
         public ICommand AgreeCommand { get; set; }
 

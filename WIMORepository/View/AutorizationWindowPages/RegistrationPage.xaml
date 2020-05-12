@@ -93,7 +93,7 @@
             <Label Style="{StaticResource LabelHelpText}" Foreground="#FF94A6B8" HorizontalContentAlignment="Right" Content="Ваша дата рождения" Grid.Row="7"/>
 
         </Grid>
-        <Grid x:Name="AgreeGrid" Grid.Column="4" Grid.Row="2" Background="#FF4B5859" Visibility="Hidden">
+        <Grid x:Name="AgreeGrid" Grid.Column="4" Grid.Row="2" Background="#FF4B5859">
             <Grid.RowDefinitions>
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="40*"/>
