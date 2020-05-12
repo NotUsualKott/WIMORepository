@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WIMORepository.Model;
 
 namespace WIMORepository
 {
@@ -24,7 +25,6 @@ namespace WIMORepository
         {
             InitializeComponent();
             DataContext = new WIMORepository.ViewModel.AutorizationWindowViewModel.AutorizationWindowViewModelClass();
-
             ViewModel.AutorizationWindowViewModel.AutorizationWindowViewModelClass.CloseAWindow = new Action(() => this.Close());
         }
     }

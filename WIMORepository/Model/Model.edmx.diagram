@@ -4,33 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="476e325439984624bc15b42312b5e74c" Name="Diagram1">
-        <EntityTypeShape EntityType="WIMOModel.Agent" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+      <Diagram DiagramId="476e325439984624bc15b42312b5e74c" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="WIMOModel.Agent" Width="1.5" PointX="18.5" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.AgentSpecialization" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.AgentStatus" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.AgentStatus" Width="1.5" PointX="16.25" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.Caliber" Width="1.5" PointX="9" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.Client" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.ClientType" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.Contract" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.Human" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.MTF" Width="1.5" PointX="0.75" PointY="18.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.MTFStatus" Width="1.5" PointX="1.5" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.Operation" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Client" Width="1.5" PointX="21.5" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.ClientType" Width="1.5" PointX="14.625" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Contract" Width="1.5" PointX="20.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Human" Width="1.5" PointX="16.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.MTF" Width="1.5" PointX="6.375" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.MTFStatus" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Operation" Width="1.5" PointX="23.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.OperationStatus" Width="1.5" PointX="6" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.OperationType" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.Order" Width="1.5" PointX="11.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Order" Width="1.5" PointX="26.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.OrderStatus" Width="1.5" PointX="9" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.Priority" Width="1.5" PointX="9" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.Priority" Width="1.5" PointX="17.625" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.Role" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.User" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.Weapon" Width="1.5" PointX="11.25" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.WeaponForAgentSpec" Width="1.5" PointX="13.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.WeaponHistory" Width="1.5" PointX="13.5" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponHistory" Width="1.5" PointX="22.875" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.WeaponProducer" Width="1.5" PointX="11.25" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.WeaponStatus" Width="1.5" PointX="11.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponStatus" Width="1.5" PointX="19.875" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="WIMOModel.WeaponStoreLog" Width="1.5" PointX="13.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WIMOModel.WeaponType" Width="1.5" PointX="9" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WIMOModel.WeaponType" Width="1.5" PointX="19.875" PointY="10.75" IsExpanded="true" />
         <AssociationConnector Association="WIMOModel.FK_Contract_Agent" ManuallyRouted="false" />
         <AssociationConnector Association="WIMOModel.FK_Operation_Agent" ManuallyRouted="false" />
         <AssociationConnector Association="WIMOModel.FK_Operative_Human" ManuallyRouted="false" />
